@@ -8,7 +8,7 @@ resource "aws_vpc" "my_vpc" {
 resource "aws_subnet" "public_subnet" {
     vpc_id = aws_vpc.my_vpc.id 
     cidr_block = var.public_subnet_cidr
-    availability_zone = var.public_az
+    availability_zone = var.pulic_az
     map_public_ip_on_launch = true 
     tags = {
         Name = "public-subnet"
