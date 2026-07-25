@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "static_website" {
 }
 
 resource "aws_s3_bucket_website_configuration" "static_website" {
-    bucket = aws_bucket.static_website.id
+    bucket = aws_s3_bucket.static_website.id
 
     index_document {
       suffix = "index.html"
