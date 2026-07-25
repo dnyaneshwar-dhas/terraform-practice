@@ -23,13 +23,15 @@ resource "aws_s3_bucket_policy" "website" {
     bucket = aws_s3_bucket.static_website.id
     depends_on = [ aws_s3_bucket_public_access_block.website ]
     policy = jsonencode ({
-        version = "2012-10-17"
-        statement = [
+        Version = "2012-10-17"
+        Statement = [
             {
-                sid = "PublicRead"
+                Sid = "PublicRead"
                 Effect = "Allow"
                 Principal = "*"
-                Action = "s3:GetObject"
+                Action = [
+                    "s3:GetObject"
+                ]
                 Resource = "${aws_s3_bucket.static_website.arn}/*"
             }
         ]
