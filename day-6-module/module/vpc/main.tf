@@ -15,11 +15,11 @@ resource "aws_subnet" "public_subnet_1" {
     }
 }
 
-resourec "aws_subnet" "public_subnet_2" {
+resource "aws_subnet" "public_subnet_2" {
     cidr_block = var.public_subnet_2_cidr
     vpc_id = aws_vpc.my_vpc.id
     availability_zone = var.public_subnet_2_az
-    map_public_ip_on_instance = true
+    map_public_ip_on_launch = true
     tags = {
         Name = "public_subnet_2"
     }
@@ -81,13 +81,14 @@ resource "aws_security_group" "sg" {
         from_port = 0
         to_port = 0
         protocol = "-1"
-        cidr_blocs = ["0.0.0.0/0"]
+        cidr_blocks = ["0.0.0.0/0"]
 
     }
 
-    tags {
+    tags = {
         Name = "my-security-group"
     }
 }
+
 
 
