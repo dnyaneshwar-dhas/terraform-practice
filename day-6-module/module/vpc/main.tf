@@ -33,10 +33,10 @@ resource "aws_internet_gateway" "IGW" {
     }
 }
 
-resource "aws_rout_table" "public_rt" {
+resource "aws_route_table" "public_rt" {
     vpc_id = aws_vpc.my_vpc.id
 
-    rout {
+    route {
         gateway_id = aws_internet_gateway.IGW.id
         cidr_block = "0.0.0.0/0"
     }
